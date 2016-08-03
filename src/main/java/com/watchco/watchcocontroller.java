@@ -1,5 +1,9 @@
 package com.watchco;
 	
+import java.util.List;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -34,12 +38,24 @@ public class watchcocontroller {
 		 
 		 ModelAndView mav = new ModelAndView("products");
 		 
-		 mav.addObject("data", "["+
-								"{\"ProductID\":\"1\",\"ProductName\":\"CASIO EDIFICE\",\"ProductPrice\":\"10000\",\"ProductImage\":\"resources//images//gulf.jpg\"},"+
-								"{\"ProductID\":\"2\",\"ProductName\":\"CASIO SHEEN\",\"ProductPrice\":\"20000\",\"ProductImage\":\"resources//images//gulf.jpg\"},"+
-								"{\"ProductID\":\"3\",\"ProductName\":\"CASIO VINATGE\",\"ProductPrice\":\"30000\",\"ProductImage\":\"resources//images//gulf.jpg\"},"+
-								"{\"ProductID\":\"4\",\"ProductName\":\"CASIO G-SHOCK\",\"ProductPrice\":\"40000\",\"ProductImage\":\"resources//images//gulf.jpg\"}"+
-								"]");
+        JSONArray jarr = new JSONArray();
+		 
+		 List<Product> list = ps.getAllProducts();
+		 
+		 for( Product p:list )
+		 {
+			 JSONObject jobj = new JSONObject();
+			 
+			 jobj.put("ProductID", p.getProductId());
+			 jobj.put("ProductName", p.getProductName());
+			 jobj.put("ProductPrice", p.getProductPrice());
+			 jobj.put("ProductPrice", p.getProductPrice());
+			 jobj.put("flag", p.getProductImage());
+			 
+			 jarr.add(jobj);
+		 }
+		 
+		 mav.addObject("data", jarr.toJSONString());
 		 
 		 return mav;
 		 
@@ -80,13 +96,31 @@ public class watchcocontroller {
 		     	return mav;
 			}
 
-		 @RequestMapping(value="/updateproduct")
-			public ModelAndView updateproduct()
+		 @RequestMapping(value="/updateproduct/{productID}")  	 
+			public ModelAndView update(@PathVariable("productID") int prodid)
 			{
 			 ModelAndView mav = new ModelAndView("updateproduct");
-		     mav.addObject("update",new Product());	 
-		     	return mav;
+			 
+			 System.out.println(prodid);
+			 
+			 Product p = ps.getProduct(prodid);
+		
+			 mav.addObject("newproduct", p);
+			 
+			 return mav;
+			 
 			}
+		
+			@RequestMapping(value="/updateproduct", method = RequestMethod.POST)  	 
+			public String updateproduct( @ModelAttribute( "newproduct" ) Product p  )
+			{
+				System.out.println(p.getProductName());
+				
+				ps.updateProduct(p);
+				
+				return "redirect:products";
+			}
+			 
 
 		 @RequestMapping(value="/insertproduct", method = RequestMethod.POST)
 			public ModelAndView insertproduct( @ModelAttribute ("newproduct") Product p)
@@ -105,6 +139,6 @@ public class watchcocontroller {
 			 System.out.println(prodid);
 			 
 			 ps.deleteProduct(prodid);
-			 return "redirect:products";
+			 return "redirect:http://localhost:8080/watchco/products";
 			} 
 }	 

@@ -99,8 +99,8 @@ input[type=text]:focus {
  		<td>{{x.ProductID}}<br>{{x.ProductName}}<br>{{x.ProductPrice}}</td>
  		
  		<td><a href="${pageContext.request.contextPath}/viewproduct/{{x.ProductID}}" class="btn btn-info">View Product</a><br><br>
- 		<a href="#"><button type="button" class="btn btn-warning">Update Product</button></a><br><br>
- 		<a href="#"><button type="button" class="btn btn-danger">Delete Product</button></a>
+ 		<a href="${pageContext.request.contextPath}/updateproduct/{{x.ProductID}}" class="btn btn-warning">Update Product</a><br><br>
+ 		<a href="${pageContext.request.contextPath}/deleteproduct/{{x.ProductID}}"><button type="button" class="btn btn-danger">Delete Product</button></a>
  		</td>
  	</tr>
  </table>

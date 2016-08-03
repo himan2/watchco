@@ -21,7 +21,6 @@
 
 <tr><td>Enter Product Name</td><td><form:input type="text" placeholder="Enter Product Name" path="productName" /></td></tr>
 
-<tr><td>Enter Product ID</td><td><form:input type="text" placeholder="Enter Product ID" path="productId"/></td></tr>
 
 <tr><td>Enter Product Description</td><td><form:input type="text" placeholder="Enter Product Description" path="productDescription"/></td></tr>
 

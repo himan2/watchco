@@ -28,7 +28,7 @@ public class ProductDAOImpl implements ProductDAO
 	}
 
 	public void updateProduct(Product p) {
-		this.getSessionFactory().getCurrentSession().saveOrUpdate(p);
+		this.getSessionFactory().getCurrentSession().update(p);
 	}
 
 	public void deleteProduct(int pid) {
