@@ -1,0 +1,17 @@
+@CHARSET "ISO-8859-1";
+
+footer
+{
+	background-color:black;
+	width:100%;
+	bottom:0px;
+	color:white;
+	text-align:center;
+	position:fixed;
+	z-index:5;
+}
+
+.jumbotron{
+background-image:url("http://localhost:8080/watchco/resources/images/main_EQB-600.jpg");
+}
+
