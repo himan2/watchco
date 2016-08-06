@@ -44,6 +44,8 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		<list>
 		<value>com.watchco.ProductModel</value>
 		<value>com.watchco.UserModel</value>
+		<value>com.watchco.UserRoleModel</value>
+		
 		</list>
 		</property>
 		

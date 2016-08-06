@@ -2,10 +2,13 @@ package com.watchco;
 	
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +17,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.watchco.ProductModel.Product;
 import com.watchco.ProductModel.ProductService;
+import com.watchco.UserModel.UserService;
+import com.watchco.UserModel.User;
 
 
 @Controller
@@ -21,6 +26,9 @@ public class watchcocontroller {
 	
 	@Autowired
 	ProductService ps;
+	@Autowired
+	UserService us;
+	
 	
 	@RequestMapping(value="/")	
 	public String home()
@@ -60,13 +68,77 @@ public class watchcocontroller {
 		 return mav;
 		 
 	 }
-	 
-	 @RequestMapping(value="/signup")
-		public String signup()
+	
+	
+	@RequestMapping(value="/signup")
+	public ModelAndView signup()
+	{
+		 
+	 ModelAndView mav = new ModelAndView("signup");
+     mav.addObject("newuser",new User());	 
+     	return mav;
+	}
+	
+	@RequestMapping(value="/insertuser", method = RequestMethod.POST)
+	public ModelAndView insertuser( @Valid @ModelAttribute ("newuser") User i , BindingResult bind)
+	{
+		ModelAndView mav = new ModelAndView("signup");
+		
+		System.out.println(i);
+		
+		if( bind.hasErrors() )
 		{
-			return "signup";
+			mav.addObject("newuser", i);
 		}
-		 @RequestMapping(value="/AddProduct", method = RequestMethod.GET)
+		else
+		{
+			if( i.getPassword().equals(i.getCPassword()) )
+			{
+				List<User> list = us.getAllUsers();
+				
+				boolean usermatch= false;
+				
+				for( User u : list )
+				{
+					System.out.println(u.getUsername());
+					System.out.println(i.getUsername());
+					
+					if( u.getUsername().equals(i.getUsername()) )
+					{
+						usermatch= true;
+						break;
+					}
+				}
+				
+				if( usermatch == false )
+				{
+					us.insertUser(i);
+					
+					mav.addObject("newuser", new User());
+					
+					mav.addObject("success", "success");
+				}	
+				else
+				{
+					mav.addObject("newuser", i);
+					
+					mav.addObject("useralreadyexists", "useralreadyexists");
+				}
+			}
+			else
+			{	
+				mav.addObject("newuser", i);
+				
+				mav.addObject("passwordmismatch", "passwordmismatch");
+			}
+				
+		}
+		
+		return mav ;
+	}
+	
+	
+	 		 @RequestMapping(value="/AddProduct", method = RequestMethod.GET)
 		public ModelAndView AddProduct( @ModelAttribute ("newproduct") Product p)
 		{
 			 System.out.println(p.getProductName());
@@ -141,4 +213,12 @@ public class watchcocontroller {
 			 ps.deleteProduct(prodid);
 			 return "redirect:http://localhost:8080/watchco/products";
 			} 
+		 
+		 @RequestMapping(value="/login" , method = RequestMethod.GET)
+			public ModelAndView login() {
+				
+				ModelAndView mav = new ModelAndView("login");
+				
+				return mav ;
+			}
 }	 

@@ -8,6 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 
+import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Email;
+
 
 @Entity
 @Embeddable
@@ -36,12 +39,15 @@ public class User implements Serializable
 
 
 	
+	
+	@NotEmpty(message="Confirm Password field is mandatory.")
 	public String getCPassword() {
 		return CPassword;
 	}
 	public void setCPassword(String cPassword) {
 		CPassword = cPassword;
 	}
+	
 	
 	public Long getID() {
 		return ID;
@@ -50,7 +56,8 @@ public class User implements Serializable
 		ID = iD;
 	}
 	
-	
+	@NotEmpty(message="Email field is mandatory.")
+    @Email(message="Invalid Email Format")
 	public String getEmail() {
 		return Email;
 	}
@@ -58,14 +65,16 @@ public class User implements Serializable
 		Email = email;
 	}
 	
+	@NotEmpty(message="Username field is mandatory.")
 	public String getUsername() {
 		return Username;
 	}
+	
 	public void setUsername(String username) {
 		Username = username;
 	}
-	
-	
+
+	@NotEmpty(message="Password field is mandatory.")
 	public String getPassword() {
 		return Password;
 	}
@@ -73,12 +82,21 @@ public class User implements Serializable
 		Password = password;
 	}
 	
-	
+	@NotEmpty(message="Phone Number field is mandatory.")
 	public String getPhone() {
 		return Phone;
 	}
 	public void setPhone(String phone) {
 		Phone = phone;
+	}
+	
+	public User(){
+		
+	}
+	@Override
+	public String toString() {
+		return "User [ID=" + ID + ", Email=" + Email + ", Username=" + Username + ", Password=" + Password
+				+ ", CPassword=" + CPassword + ", Phone=" + Phone + "]";
 	}
 	
 	

@@ -1,0 +1,16 @@
+com\watchco\ProductModel\Product.class
+com\watchco\ProductModel\ProductService.class
+com\watchco\UserRoleModel\UserRoleService.class
+com\watchco\UserRoleModel\UserRoleServiceImpl.class
+com\watchco\ProductModel\ProductServiceImpl.class
+com\watchco\UserModel\UserDAO.class
+com\watchco\UserModel\UserServiceImpl.class
+com\watchco\UserRoleModel\UserRole.class
+com\watchco\UserModel\UserDAOImpl.class
+com\watchco\UserRoleModel\UserRoleDAOImpl.class
+com\watchco\watchcocontroller.class
+com\watchco\ProductModel\ProductDAOImpl.class
+com\watchco\UserModel\UserService.class
+com\watchco\UserRoleModel\UserRoleDAO.class
+com\watchco\UserModel\User.class
+com\watchco\ProductModel\ProductDAO.class
