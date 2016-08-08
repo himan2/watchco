@@ -4,12 +4,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 @Entity
 public class UserRole {
-
+	
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private Long ID;
+	
+
 	private String RoleName;
 	private int Role;
 	public Long getID() {
@@ -17,6 +18,9 @@ public class UserRole {
 	}
 	public void setID(Long iD) {
 		ID = iD;
+	}
+	public UserRole() {
+		super();
 	}
 	public String getRoleName() {
 		return RoleName;
@@ -37,10 +41,5 @@ public class UserRole {
 		Role = role;
 	}
 	
-	public UserRole()
-	{
-		
-	}
-	
-	
+
 }

@@ -71,7 +71,23 @@ legend{
 		
 		 <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <form action="${pageContext.request.contextPath}/loginuser" method="post" class="form">   
+            
+              
+            
+            <form action="login" method="post">
+					    		
+					    		
+					    		<c:if test="${param.error != null}">
+	                                <div class="alert alert-danger">
+	                                    <p>Invalid Username and password.</p>
+	                                </div>
+	                            </c:if>
+	                            <c:if test="${param.logout != null}">
+	                                <div class="alert alert-success">
+	                                    <p>You have been logged out successfully.</p>
+	                                </div>
+	                            </c:if>
+            
             <legend>LOGIN</legend>
                     
                     <div class="row">
@@ -79,7 +95,7 @@ legend{
                             <input path="username" type="text" name="username" class="form-control input-lg" placeholder="User Name"  />
                             </div>
                         <div class="col-xs-6 col-md-6">
-                            <input path="password" type="text" name="phone" value="" class="form-control input-lg" placeholder="Password"  />
+                            <input path="password" type="text" name="password" value="" class="form-control input-lg" placeholder="Password"  />
                             </div>
                             
                     </div>

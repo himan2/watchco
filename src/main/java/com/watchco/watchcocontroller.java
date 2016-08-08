@@ -1,12 +1,21 @@
 package com.watchco;
 	
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.List;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,6 +27,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.watchco.ProductModel.Product;
 import com.watchco.ProductModel.ProductService;
 import com.watchco.UserModel.UserService;
+import com.watchco.UserRoleModel.UserRoleService;
 import com.watchco.UserModel.User;
 
 
@@ -26,13 +36,20 @@ public class watchcocontroller {
 	
 	@Autowired
 	ProductService ps;
+	
 	@Autowired
 	UserService us;
 	
+	@Autowired
+	UserRoleService	urs;
+	
+	@Autowired
+	ServletContext context;
 	
 	@RequestMapping(value="/")	
 	public String home()
 	{	
+		urs.generateUserRoles();
 		return "index";
 	}
 	@RequestMapping(value="/index")	
@@ -58,7 +75,7 @@ public class watchcocontroller {
 			 jobj.put("ProductName", p.getProductName());
 			 jobj.put("ProductPrice", p.getProductPrice());
 			 jobj.put("ProductPrice", p.getProductPrice());
-			 jobj.put("flag", p.getProductImage());
+			 jobj.put("ProductImage", p.getProductImage());
 			 
 			 jarr.add(jobj);
 		 }
@@ -138,15 +155,13 @@ public class watchcocontroller {
 	}
 	
 	
-	 		 @RequestMapping(value="/AddProduct", method = RequestMethod.GET)
-		public ModelAndView AddProduct( @ModelAttribute ("newproduct") Product p)
-		{
-			 System.out.println(p.getProductName());
-			 
-		 ModelAndView mav = new ModelAndView("AddProduct");
-	     mav.addObject("newproduct",new Product());	 
-	     	return mav;
-		}
+	@RequestMapping(value="/AddProduct", method = RequestMethod.GET)
+	public ModelAndView AddProduct()
+	{
+		ModelAndView mav = new ModelAndView("AddProduct");
+	    mav.addObject("newproduct",new Product());	 
+	    return mav;
+	}
 		 
 		 @RequestMapping(value="/viewproduct/{productID}")
 			public ModelAndView addproduct1(@PathVariable("productID") int prodid)
@@ -163,6 +178,8 @@ public class watchcocontroller {
 				 mav.addObject("ProductCategory", p.getProductCategory()); 
 				 mav.addObject("ProductPrice", p.getProductPrice()); 
 				 mav.addObject("ProductQty", p.getProductQty()); 
+				 mav.addObject("ProductImage", p.getProductImage()); 
+				 
 			 }
 			 
 		     	return mav;
@@ -177,32 +194,118 @@ public class watchcocontroller {
 			 
 			 Product p = ps.getProduct(prodid);
 		
-			 mav.addObject("newproduct", p);
+			 mav.addObject("newproduct3", p);
 			 
 			 return mav;
 			 
 			}
 		
 			@RequestMapping(value="/updateproduct", method = RequestMethod.POST)  	 
-			public String updateproduct( @ModelAttribute( "newproduct" ) Product p  )
+			public String insertproduct1( @ModelAttribute( "newproduct3" ) Product p  )
 			{
-				System.out.println(p.getProductName());
 				
-				ps.updateProduct(p);
+				try
+			    {
+					String path = context.getRealPath("/");
+			        
+			        System.out.println(path);
+			        
+			        File directory = null;
+			        
+			        //System.out.println(ps.getProductWithMaxId());
+			        
+			        if (p.getProductFile().getContentType().contains("image"))
+			        {
+			            directory = new File(path + "\\resources\\images");
+			            
+			            System.out.println(directory);
+			            
+			            byte[] bytes = null;
+			            File file = null;
+			            bytes = p.getProductFile().getBytes();
+			            
+			            if (!directory.exists()) directory.mkdirs();
+			            
+			            file = new File(directory.getAbsolutePath() + System.getProperty("file.separator") + "image_" + p.getProductId() + ".jpg");
+			            
+			            System.out.println(file.getAbsolutePath());
+			            
+			            BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(file));
+			            stream.write(bytes);
+			            stream.close();
+
+			        }
+			        
+			        p.setProductImage("resources/images/image_" + p.getProductId() + ".jpg");
+			        
+			        ps.updateProduct(p);
+			    }
+			    catch (Exception e)
+			    {
+			    	e.printStackTrace();
+			    }
 				
 				return "redirect:products";
 			}
+
 			 
 
-		 @RequestMapping(value="/insertproduct", method = RequestMethod.POST)
-			public ModelAndView insertproduct( @ModelAttribute ("newproduct") Product p)
+			@RequestMapping(value="/insertproduct", method = RequestMethod.POST)  	 
+			public String insertproduct( @ModelAttribute( "newproduct" ) Product p  )
 			{
-				 System.out.println(p.getProductName());
-				 ps.insertProduct(p);
-			 ModelAndView mav = new ModelAndView("AddProduct");
-		     mav.addObject("newproduct",new Product());	 
-		     	return mav;
+				System.out.println( "Product Name: " + p.getProductName());
+				
+				ps.insertProduct( p );
+				
+				Product i1 = ps.getProductWithMaxId();
+				
+				System.out.println(i1.getProductId());
+				
+				try
+			    {
+					String path = context.getRealPath("/");
+			        
+			        System.out.println(path);
+			        
+			        File directory = null;
+			        
+			        //System.out.println(ps.getProductWithMaxId());
+			        
+			        if (p.getProductFile().getContentType().contains("image"))
+			        {
+			            directory = new File(path + "\\resources\\images");
+			            
+			            System.out.println(directory);
+			            
+			            byte[] bytes = null;
+			            File file = null;
+			            bytes = p.getProductFile().getBytes();
+			            
+			            if (!directory.exists()) directory.mkdirs();
+			            
+			            file = new File(directory.getAbsolutePath() + System.getProperty("file.separator") + "image_" + i1.getProductId() + ".jpg");
+			            
+			            System.out.println(file.getAbsolutePath());
+			            
+			            BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(file));
+			            stream.write(bytes);
+			            stream.close();
+
+			        }
+			        
+			        i1.setProductImage("resources/images/image_" + i1.getProductId() + ".jpg");
+			        
+			        ps.updateProduct(i1);
+			    }
+			    catch (Exception e)
+			    {
+			    	e.printStackTrace();
+			    }
+				
+				return "redirect:products";
 			}
+			
+
 		 
 		 @RequestMapping(value="/deleteproduct/{productID}")
 			public String deleteproduct1(@PathVariable("productID") int prodid)
@@ -214,11 +317,26 @@ public class watchcocontroller {
 			 return "redirect:http://localhost:8080/watchco/products";
 			} 
 		 
-		 @RequestMapping(value="/login" , method = RequestMethod.GET)
+		 @RequestMapping(value="/loginpage" , method = RequestMethod.GET)
 			public ModelAndView login() {
 				
 				ModelAndView mav = new ModelAndView("login");
 				
 				return mav ;
+			}
+
+		 
+		 @RequestMapping(value="/logout", method = RequestMethod.GET)
+			public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
+			    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+			    if (auth != null){    
+			        
+			    	System.out.println("In LogOut");
+			    	new SecurityContextLogoutHandler().logout(request, response, auth);
+			        
+			        
+			    }
+			    
+			    return "index";
 			}
 }	 

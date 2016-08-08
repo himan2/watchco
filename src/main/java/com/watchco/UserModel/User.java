@@ -37,7 +37,24 @@ public class User implements Serializable
 	
 	private String Phone;
 
+	private int Role = 1;
+	private boolean Active = true;
+	
+	public int getRole() {
+		return Role;
+	}
 
+	public void setRole(int role) {
+		Role = role;
+	}
+
+	public boolean isActive() {
+		return Active;
+	}
+
+	public void setActive(boolean active) {
+		Active = active;
+	}
 	
 	
 	@NotEmpty(message="Confirm Password field is mandatory.")

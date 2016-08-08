@@ -94,7 +94,7 @@ input[type=text]:focus {
  <table class="table" id="section1">
  	<tr ng-repeat="x in data | filter:search">
  	
- 		<td><img class="enlarge" src="{{ x.ProductImage }}" class="img-rounded" width="250px" ></td>
+ 		<td><img src="${pageContext.request.contextPath}/{{ x.ProductImage }}" class="img-rounded" width="250px" ></td>
  		
  		<td>{{x.ProductID}}<br>{{x.ProductName}}<br>{{x.ProductPrice}}</td>
  		
