@@ -33,11 +33,20 @@
 				</td>
 			</tr>
 
-			<tr><td>Enter Product Category</td><td><form:input type="text" placeholder="Enter Product Category" path="productCategory"/></td></tr>
+			<tr><td>Enter Product Category</td>
+				<td><form:input type="text" placeholder="Enter Product Category" path="productCategory"/>
+				</td>
+			</tr>
 
-			<tr><td>Enter Product Qty</td><td><form:input type="text" placeholder="Enter Product Qty" path="productQty"/></td></tr>
+			<tr><td>Enter Product Qty</td>
+				<td><form:input type="text" placeholder="Enter Product Qty" path="productQty"/>
+				</td>
+			</tr>
 
-			<tr><td>Enter Product Price</td><td><form:input type="text" placeholder="Enter Product Price" path="productPrice"/></td></tr>
+			<tr><td>Enter Product Price</td>
+				<td><form:input type="text" placeholder="Enter Product Price" path="productPrice"/>
+				</td>
+			</tr>
 
 			<tr>
 				<td><form:label path="productImage" for="productImage">Image:</form:label></td>

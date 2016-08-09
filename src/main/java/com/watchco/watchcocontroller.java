@@ -57,8 +57,38 @@ public class watchcocontroller {
 	{	
 		return "index";
 	}	
+	@RequestMapping(value="/page1")	
+	public String page1()
+	{	
+		return "flows/page1";
+	}
+	@RequestMapping(value="/page2")	
+	public String page2()
+	{	
+		return "flows/page2";
+	}
+	@RequestMapping(value="/page3")	
+	public String page3()
+	{	
+		return "flows/page3";
+	}
+	@RequestMapping(value="/page4")	
+	public String page4()
+	{	
+		return "flows/page4";
+	}
+	@RequestMapping(value="/head-meta")	
+	public String headmeta()
+	{	
+		return "head-meta";
+	}
+	@RequestMapping(value="/head")	
+	public String head()
+	{	
+		return "head";
+	}
 	@RequestMapping("/products") 
-	 public ModelAndView abc() 
+	 public ModelAndView abc()
 	 { 
 		 
 		 ModelAndView mav = new ModelAndView("products");

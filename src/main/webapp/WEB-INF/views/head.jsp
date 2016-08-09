@@ -14,8 +14,8 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li ><a href="index">HOME</a></li>
-        <li><a href="products">PRODUCTS</a></li>
+        <li ><a href="${pageContext.request.contextPath}/index">HOME</a></li>
+        <li><a href="${pageContext.request.contextPath}/products">PRODUCTS</a></li>
         <li><a href="#">NEW COLLECTIONS</a></li>
        <li><a href="#">DEALS</a></li>
         <li><a href="#">ABOUT US</a></li>

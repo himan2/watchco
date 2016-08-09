@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-  <title>Products</title>
+  <title>sign up</title>
  
   
  <c:import url="head-meta.jsp" />
@@ -20,8 +20,6 @@ body {
 background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #D3D8E8));
 /* Webkit (Chrome 11+) */ 
 background-image: linear-gradient(to bottom, #FFFFFF 0%, 	#8B4513 100%);
-
-
 }  
 legend{
  color:black;

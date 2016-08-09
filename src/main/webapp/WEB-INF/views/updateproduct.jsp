@@ -6,14 +6,30 @@
 <html>
 <head>
 <c:import url="head-meta.jsp"/>
+<style>
+
+#wrap{
+
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #D3D8E8));
+/* Webkit (Chrome 11+) */ 
+background-image: linear-gradient(to bottom, #FFFFFF 0%, 	#8B4513 100%);
+}
+.form .form-control { margin-bottom: 10px; }
+@media (min-width:768px) {
+ #home{
+  margin-top:50px;
+ }  
+</style>
 
 
 
 </head>
 <body>
 <c:import url="head.jsp"/>
-
 <br><br><br><br><br>
+<div class="container" id="wrap">
+
+
 
 <form:form action="${pageContext.request.contextPath}/updateproduct" method="post" modelAttribute="newproduct3" enctype="multipart/form-data">
  
@@ -21,17 +37,41 @@
 
 <table align="center" >
 
-<tr><td>Enter Product Name</td><td><form:input type="text" placeholder="Enter Product Name" path="productName" /></td></tr>
+<tr><td>Enter Product Name</td>
+	<td>
+	<form:input type="text" path="productName" class="form-control" placeholder="productName"  />
+	</td>
+</tr>
 
-<tr><td>Enter Product ID</td><td><form:input type="text" placeholder="Enter Product ID" path="productId"/></td></tr>
+<tr><td>Enter Product ID</td>
+	<td>
+	<form:input type="text" path="productId" class="form-control" placeholder="Enter Product ID"  />
+	</td>
+</tr>
 
-<tr><td>Enter Product Description</td><td><form:input type="text" placeholder="Enter Product Description" path="productDescription"/></td></tr>
+<tr><td>Enter Product Description</td>
+	<td>
+	<form:input type="text" path="productDescription" class="form-control" placeholder="Enter Product Description"  />
+	</td>
+</tr>
 
-<tr><td>Enter Product Category</td><td><form:input type="text" placeholder="Enter Product Category" path="productCategory"/></td></tr>
+<tr><td>Enter Product Category</td>
+	<td>
+	<form:input type="text" path="productCategory" class="form-control" placeholder="Enter Product Category"  />
+	</td>
+</tr>
 
-<tr><td>Enter Product Qty</td><td><form:input type="text" placeholder="Enter Product Qty" path="productQty"/></td></tr>
+<tr><td>Enter Product Qty</td>
+	<td>
+	<form:input type="text" path="productQty" class="form-control" placeholder="Enter Product Qty"  />
+	</td>
+</tr>
 
-<tr><td>Enter Product Price</td><td><form:input type="text" placeholder="Enter Product Price" path="productPrice"/></td></tr>
+<tr><td>Enter Product Price</td>
+	<td>
+	<form:input type="text" path="productPrice" class="form-control" placeholder="Enter Product Price"  />
+	</td>
+</tr>
 
 <tr>
 				<td><form:label path="productImage" for="productImage">Image:</form:label></td>
@@ -50,11 +90,11 @@
 				</td>
 			</tr>
 
-<tr><td> <input type="submit" value="Update" class="btn btn-primary"></td></tr>
+<tr><td> <input type="submit" value="Update" class="btn btn-primary"></td></tr><br>
 
 </table>
-
+<br>
 </form:form>
-
+</div>
 </body>
 </html>
