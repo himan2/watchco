@@ -51,6 +51,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		<value>com.watchco.ProductModel</value>
 		<value>com.watchco.UserModel</value>
 		<value>com.watchco.UserRoleModel</value>
+		<value>com.watchco.CartModel</value>
 		
 		</list>
 		</property>
@@ -59,6 +60,22 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 	
 	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<webflow:flow-executor id="flowExecutor" flow-registry="flowRegistry">
+		<webflow:flow-execution-repository max-execution-snapshots="0"/>
+	</webflow:flow-executor>	
+
+	<webflow:flow-registry id="flowRegistry" base-path="/WEB-INF/views/flows">
+	<webflow:flow-location path="/web-flow.xml" id="cart" />
+	</webflow:flow-registry>
+	
+	<bean id="flowHandlerMapping" class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
+	<property name="flowRegistry" ref="flowRegistry" />
+	</bean>
+	
+	<bean id="flowHandlerAdapter" class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
+	<property name="flowExecutor" ref="flowExecutor" />
 	</bean>
 	
 </beans>

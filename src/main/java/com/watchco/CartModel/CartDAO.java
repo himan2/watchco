@@ -18,5 +18,5 @@ public interface CartDAO
     
     void deleteByProductId(int pid);
     
-    public List<Cart> getAllItems();
+    public List<Cart> getAllProducts();
 }

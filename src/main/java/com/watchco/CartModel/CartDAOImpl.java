@@ -5,10 +5,12 @@ import java.util.List;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.watchco.ProductModel.Product;
 
 @Repository
+@EnableTransactionManagement
 public class CartDAOImpl implements CartDAO
 {
 
@@ -50,7 +52,7 @@ public class CartDAOImpl implements CartDAO
 		sessionFactory.getCurrentSession().createQuery("delete from Cart as p where p.ProductId = :id").setInteger("id", pid).executeUpdate();
 	}
 
-	public List<Cart> getAllItems() {
+	public List<Cart> getAllProducts() {
 		return sessionFactory.getCurrentSession().createQuery("from Cart").list();
 	}
 
@@ -70,6 +72,11 @@ public class CartDAOImpl implements CartDAO
 			return "success";
 		else
 			return "failure";
+	}
+
+	public List<Cart> getAllProduct() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 

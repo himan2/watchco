@@ -20,6 +20,7 @@
        <li><a href="#">DEALS</a></li>
         <li><a href="#">ABOUT US</a></li>
          <li><a href="#">CONTACT US</a></li>
+         <li><a href="${pageContext.request.contextPath}/initiateFlow">begin flow</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
       
