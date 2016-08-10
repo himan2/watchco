@@ -23,8 +23,8 @@
 <br><br><br><br><br>
 
 <div class="container">
-  <button type="button" class="btn btn-success btn-lg btn pull-left"><span class="glyphicon glyphicon-chevron-left"></span>Previous</button>
-  <button type="button" class="btn btn-danger btn-lg btn pull-right">Next<span class="glyphicon glyphicon-chevron-right"></span></button>
+  <a href="${flowExecutionUrl}&_eventId=BackToConfirmDetails" class="btn btn-success btn-lg btn pull-left"><span class="glyphicon glyphicon-chevron-left"></span>Previous</a>
+ <a href="${flowExecutionUrl}&_eventId=confirmOrder" class="btn btn-danger btn-lg btn pull-right">Next<span class="glyphicon glyphicon-chevron-right"></span></a>
   
 </div>
 

@@ -23,19 +23,19 @@ http://www.springframework.org/schema/webflow/spring-webflow-2.4.xsd">
 		<transition to="run" on="goToCart" />		
 	</view-state>
 	
-	<!-- <view-state id="goToCheckout" view="/WEB-INF/views/flows/viewcartconfirmdetails.jsp">
+	<view-state id="goToCheckout" view="/WEB-INF/views/flows/page2.jsp">
 		<transition to="run" on="BackToCart" />
 		<transition to="ViewCompleteOrder" on="ViewCompleteOrder" />
 	</view-state>
 	
 	<view-state id="productsPage" view="externalRedirect:/product" />
 	
-	<view-state id="ViewCompleteOrder" view="/WEB-INF/views/flows/viewcartcompleteorder.jsp">
+	<view-state id="ViewCompleteOrder" view="/WEB-INF/views/flows/page3.jsp">
 		<transition to="goToCheckout" on="BackToConfirmDetails" />
-		<transition to="confirmOrder" on="ConfirmOrder" />
+		<transition to="confirmOrder" on="confirmOrder" />
 	</view-state>
 	 
 	 
-	<end-state id="confirmOrder" view="/WEB-INF/views/flows/viewcartthankyoupage.jsp"/> -->
+	<end-state id="confirmOrder" view="/WEB-INF/views/flows/page4.jsp"/>
 	
 </flow>

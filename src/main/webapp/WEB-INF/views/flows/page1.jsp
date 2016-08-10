@@ -22,7 +22,7 @@
 <c:import url="/head"/>
 <br><br><br><br><br>
 <div class="container">
-  <button type="button" class="btn btn-primary btn-lg btn pull-right">Next<span class="glyphicon glyphicon-chevron-right"></span></button>
+  <a href="${flowExecutionUrl}&_eventId=goToCheckout" class="btn btn-primary btn-lg btn pull-right">Next<span class="glyphicon glyphicon-chevron-right"></span></a>
   
 </div>
 

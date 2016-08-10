@@ -24,7 +24,7 @@
 
 <div class="container">
 
-  <button  type="button" class="btn btn-primary btn-lg btn pull-right">Previous<span class="glyphicon glyphicon-chevron-right"></span></button>
+  <a href="${pageContext.request.contextPath}/index" class="btn btn-primary btn-lg btn pull-left"><span class="glyphicon glyphicon-chevron-left"></span>Previous</a>
   
 </div>
 
