@@ -26,7 +26,7 @@ background-image: linear-gradient(to bottom, #FFFFFF 0%, 	#8B4513 100%);
 
 <div class="container" id="wrap">
 
-<form action="viewproduct" method="post">
+
 <br><br><br>
 <table class="table" align="center" >
 
@@ -43,10 +43,23 @@ background-image: linear-gradient(to bottom, #FFFFFF 0%, 	#8B4513 100%);
 
 <tr><td>Product Category</td><td>${ProductCategory}</td></tr>
 
+	<form action="${pageContext.request.contextPath}/addToCart" method="post">
+		<input type="hidden" value="${ProductId}" name="pid" />
+		<tr>
+			<td>Qty</td>
+			<td><input type="number" min="1" max="10" name="pqty" class="form form-input" /></td>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td><input type="submit" value="Add To Cart" class="btn btn-success"/></td>
+		</tr>
+		
+	</form>
+
 
 </table>
 <br><br><br>
-</form>
 </div>
 </body>
 </html>

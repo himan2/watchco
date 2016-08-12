@@ -14,19 +14,30 @@
  body {
    background: url(resources/images/Dark-wooden-website-background.jpg) no-repeat center center fixed; 
 }
+#xyz{position:relative;}
+
+
  </style>
 
 </head>
 <body>
 
 <c:import url="/head"/>
-<br><br><br><br><br>
-
+<br><br><br><br>
 <div class="container">
-
-  <a href="${pageContext.request.contextPath}/index" class="btn btn-primary btn-lg btn pull-left"><span class="glyphicon glyphicon-chevron-left"></span>Previous</a>
-  
+<div id="xyz">
+    <div id="abc">
+   
+    	<img src="${pageContext.request.contextPath}/resources/images/thnk.jpg" class="img img-responsive" class="img-rounded" style="margin: auto; width: 100%;" >
+    	<a href="${pageContext.request.contextPath}/index" class="btn btn-success btn-lg btn pull-left" style="position: absolute; top: 540px; left: 350px; ">Chrono Watch co.</a>
+    	<a href="${pageContext.request.contextPath}/contact" class="btn btn-warning btn-lg btn pull-bottomleft" style="position: absolute; top: 543px; right: 10px;">Contact Us</a>
+    	 
+    </div>
+    
 </div>
+</div>
+
+<br><br><br><br>
 
 </body>
 </html>

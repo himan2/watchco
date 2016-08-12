@@ -24,6 +24,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.watchco.CartModel.Cart;
+import com.watchco.CartModel.CartService;
 import com.watchco.ProductModel.Product;
 import com.watchco.ProductModel.ProductService;
 import com.watchco.UserModel.UserService;
@@ -46,6 +48,9 @@ public class watchcocontroller {
 	@Autowired
 	ServletContext context;
 	
+	@Autowired
+	CartService cs;
+	
 	@RequestMapping(value="/")	
 	public String home()
 	{	
@@ -57,10 +62,54 @@ public class watchcocontroller {
 	{	
 		return "index";
 	}	
-	@RequestMapping(value="/page1")	
-	public String page1()
+	@RequestMapping(value="/contact")	
+	public String contact()
 	{	
-		return "flows/page1";
+		return "contact";
+	}	
+	@RequestMapping(value="flows/page1")	
+	public ModelAndView page1()
+	{
+		ModelAndView mav = new ModelAndView( "flows/page1" );
+		
+		List<Cart> list = cs.getAllProducts();
+		
+		JSONArray jarr = new JSONArray();
+		
+		String user = "";
+		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    if (auth != null && !auth.getName().equals("anonymousUser"))
+	    {    
+	    	user = auth.getName();
+	    }
+		
+		for( Cart item:list )
+		{
+			
+			if( item.getUserID().equals(user) )
+			{
+				JSONObject jobj = new JSONObject();
+				
+				jobj.put("ProductID", item.getProductID() );
+				jobj.put("ProductName", item.getName() );
+				jobj.put("ProductPrice", item.getPrice() );
+				
+				Product p = ps.getProduct( Integer.parseInt(item.getProductID()) );
+				
+				jobj.put("ProductImage", p.getProductImage());
+				jobj.put("ProductQty", item.getQty());
+				 
+				jarr.add(jobj);
+			}
+			
+		 }
+		 
+		System.out.println(jarr);
+		
+		mav.addObject("data", jarr.toJSONString());
+		
+		return mav;
 	}
 	@RequestMapping(value="/page2")	
 	public String page2()
@@ -87,6 +136,52 @@ public class watchcocontroller {
 	{	
 		return "head";
 	}
+	
+	@RequestMapping(value="/addToCart")	
+	public String addToCart( HttpServletRequest request )
+	{	
+		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    if (auth != null && !auth.getName().equals("anonymousUser"))
+	    {    
+	    	System.out.println(request.getParameter("pid"));
+			System.out.println(request.getParameter("pqty"));
+			
+			int qty = 1;
+			
+			try
+			{
+				qty = Integer.parseInt(request.getParameter("pqty"));
+				
+				if( !(qty >= 1 && qty <= 10) )
+					throw new Exception();
+			}
+			catch(Exception e)
+			{
+				System.out.println("Invalid Qty");
+			}
+			
+			Cart c = new Cart();
+			
+			c.setProductID(request.getParameter("pid"));
+			c.setQty(""+qty);
+			
+			Product p = ps.getProduct( Integer.parseInt(request.getParameter("pid")) );
+			
+			c.setName(p.getProductName());
+			c.setPrice(p.getProductPrice());
+			
+			c.setUserID(auth.getName());
+			
+			cs.add(c);
+			
+			
+	    }
+	    
+	    return "redirect:initiateFlow";
+	    
+	}
+	
 	@RequestMapping("/products") 
 	 public ModelAndView abc()
 	 { 
@@ -192,8 +287,10 @@ public class watchcocontroller {
 	    mav.addObject("newproduct",new Product());	 
 	    return mav;
 	}
+	
+	
 		 
-		 @RequestMapping(value="/viewproduct/{productID}")
+	@RequestMapping(value="/viewproduct/{productID}")
 			public ModelAndView addproduct1(@PathVariable("productID") int prodid)
 			{
 			 ModelAndView mav = new ModelAndView("viewproduct");
@@ -208,6 +305,8 @@ public class watchcocontroller {
 				 mav.addObject("ProductCategory", p.getProductCategory()); 
 				 mav.addObject("ProductPrice", p.getProductPrice()); 
 				 mav.addObject("ProductQty", p.getProductQty()); 
+				 mav.addObject("ProductId", p.getProductId()  );
+				 
 				 mav.addObject("ProductImage", p.getProductImage()); 
 				 
 			 }

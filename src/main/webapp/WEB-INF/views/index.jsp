@@ -35,7 +35,9 @@ font-family: "Algerian"
 h4 {
     color: black;
 }
-
+.jumbotron{
+background-image:url("http://localhost:8080/watchco/resources/images/main_EQB-600.jpg");
+}
 </style>
 </head>
 <body>

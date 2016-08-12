@@ -50,9 +50,9 @@ public class CartServiceImpl implements CartService
 		return dao.checkUsername(Username);
 	}
 
+	@Transactional
 	public List<Cart> getAllProducts() {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.getAllProducts();
 	}
 
 }

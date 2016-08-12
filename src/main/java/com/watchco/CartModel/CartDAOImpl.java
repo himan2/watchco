@@ -76,7 +76,7 @@ public class CartDAOImpl implements CartDAO
 
 	public List<Cart> getAllProduct() {
 		// TODO Auto-generated method stub
-		return null;
+		return (List<Cart>)sessionFactory.getCurrentSession().createQuery("from Cart").list();
 	}
 	
 

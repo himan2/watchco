@@ -20,14 +20,16 @@ public class Cart implements Serializable
 	private String Address;
 	private String BillingAddress;
 	
+	private String ProductID;
+	private String UserName;
+	
 	public String getBillingAddress() {
 		return BillingAddress;
 	}
 	public void setBillingAddress(String billingAddress) {
 		BillingAddress = billingAddress;
 	}
-	private String ProductID;
-	private String UserName;
+	
 	public int getCartID() {
 		return ID;
 	}
