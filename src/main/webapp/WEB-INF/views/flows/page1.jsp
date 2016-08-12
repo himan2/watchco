@@ -21,27 +21,25 @@
 <script type="text/javascript">
 
 'use strict';
+var myApp = angular.module('myApp',[]);
 
-	var myApp = angular.module('myApp',[]);
-	
-	///////////////
-	
-	myApp.factory('UserService', ['$http', '$q', function($http, $q){
-	 
-    return {
-         
-            sendData: function(item){
-                    return $http.post('http://localhost:8080/watchco/flows/sendData/', item)
-                            .then(
-                                    function(response){
-                                        return response.data;
-                                    }, 
-                                    function(errResponse){
-                                        console.error('Error while sending data');
-                                        return $q.reject(errResponse);
-                                    }
-                            );
-            },
+myApp.factory('UserService', ['$http', '$q', function($http, $q)
+{
+
+return {
+ 
+    deleteFromCart: function(item){
+            return $http.post('http://localhost:8080/watchco/flows/deleteFromCart/', item)
+                    .then(
+                            function(response){
+                                return response.data;
+                            }, 
+                            function(errResponse){
+                                console.error('Error while sending data');
+                                return $q.reject(errResponse);
+                            }
+                    );
+    },
             fetchAllItems: function(item){
                 return $http.post('http://localhost:8080/watchco/flows/fetchAllItems/')
                         .then(
@@ -80,7 +78,32 @@
 	            } 
         	); */
         	
-        	
+        	$scope.deleteFromCart = function( cartId )
+        	{
+        		$UserService.deleteFromCart(cartId)
+        		.then
+            	(
+            			function(response)
+            			{
+            				try
+            				{
+            					$scope.data=response;
+            				}
+            				catch(e)
+            				{
+            					$scope.data=[];
+            					
+            				}
+            			console.log($scope.data);
+            			}
+            			,
+            			 
+         	            function(errResponse)
+         	            {
+         	            	console.error('Error while Sending Data.');
+         	            } 
+            	);
+        	}
         	
         	$UserService.fetchAllItems()
         	.then(
@@ -109,10 +132,6 @@
         	
 	}]);
 
-	
-	
-	
-	
 </script>
 
 <body ng-app="myApp" ng-controller="abc">
@@ -155,7 +174,7 @@
 		
 		<tr>
 			<td></td>
-			<td><input type="button" value="Delete from Cart" class="btn btn-danger" /></td>
+			<td><input type="button" value="Delete from Cart" class="btn btn-danger" ng-click="deleteFromCart(x.CartId)" /></td>
 		</tr>
 
 </table>
