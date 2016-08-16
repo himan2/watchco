@@ -14,6 +14,9 @@
  body {
    background: url(resources/images/Dark-wooden-website-background.jpg) no-repeat center center fixed; 
 }
+.table{
+display: inline-block;
+}
  </style>
 
 </head>
@@ -78,7 +81,7 @@ return {
 	            } 
         	); */
         	
-        	$scope.deleteFromCart = function( cartId )
+        	$scope.delFromCart = function( cartId )
         	{
         		$UserService.deleteFromCart(cartId)
         		.then
@@ -139,21 +142,26 @@ return {
 <c:import url="/head"/>
 <br><br><br><br><br>
 <div class="container">
-  <a href="${flowExecutionUrl}&_eventId=goToCheckout" class="btn btn-primary btn-lg btn pull-right">Next<span class="glyphicon glyphicon-chevron-right"></span></a>
+  <a href="${flowExecutionUrl}&_eventId=goToCheckout" class="btn btn-primary btn-lg btn pull-right">Current Cart<span class="glyphicon glyphicon-chevron-right"></span></a>
+  </div>
+<br>
+<div ng-repeat="x in data" style="background-color: rgba(255,255,255,0.5);">
+
+
+<div class="container">
+<div class="panel panel-primary">
+      
+    </div>
+    <br>
+	
+		<div class="row">
+<div class="col-sm-12">
+ <div class="panel panel-primary" style="margin: auto; width: 85%;">
   
-</div>
-
-<div ng-repeat="x in data" style="background-color: rgba(255,255,255,0.9);">
-
-<table class="table" align="center" >
-
-	<tr>    
-          <td colspan="2">
-          	<div style="margin: auto; width: 45%;">
+   <div class="panel-body" >
+       
           		<img src="${pageContext.request.contextPath}/{{x.ProductImage}}" width="100%" class="img img-responsive img-thumbnail"></img>
-          	</div>
-          </td>  
-	</tr> 
+          		<table class="table" style="margin: auto; width: 85%;">
 
 <tr>
 	<td>Product Name</td>
@@ -174,12 +182,21 @@ return {
 		
 		<tr>
 			<td></td>
-			<td><input type="button" value="Delete from Cart" class="btn btn-danger" ng-click="deleteFromCart(x.CartId)" /></td>
+			<td><input type="button" value="Delete from Cart" class="btn btn-danger" ng-click="delFromCart(x.CartId)" /></td>
 		</tr>
 
 </table>
+          		</div>
+          	</div>
+          </div>
+
+
+		</div>
+		</div>
 </div>
-
-
+		<br>
+		<br>
+		<br>
 </body>
+
 </html>

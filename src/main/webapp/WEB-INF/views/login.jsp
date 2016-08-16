@@ -95,7 +95,7 @@ legend{
                             <input path="username" type="text" name="username" class="form-control input-lg" placeholder="User Name"  />
                             </div>
                         <div class="col-xs-6 col-md-6">
-                            <input path="password" type="text" name="password" value="" class="form-control input-lg" placeholder="Password"  />
+                            <input path="password" type="password" name="password" value="" class="form-control input-lg" placeholder="Password"  />
                             </div>
                             
                     </div>

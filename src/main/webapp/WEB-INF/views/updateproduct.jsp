@@ -7,7 +7,9 @@
 <head>
 <c:import url="head-meta.jsp"/>
 <style>
-
+body {
+   background: url(http://localhost:8080/watchco/resources/images/Dark-wooden-website-background.jpg) no-repeat center center fixed; 
+}
 #wrap{
 
 background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #D3D8E8));

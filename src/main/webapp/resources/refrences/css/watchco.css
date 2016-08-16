@@ -11,5 +11,22 @@ footer
 	z-index:5;
 }
 
+#myNavbar
+{
+	/*  background: url(http://localhost:8080/watchco/resources/images/thnk1.jpg); */ 
+	
+	
+}
+body {
+   background: url(http://localhost:8080/watchco/resources/images/Dark-wooden-website-background.jpg) no-repeat center center fixed; 
+}
+.navbar
+{
+	color:white;
+}
 
-
+.center
+{
+	margin: auto;
+	width: 85%;
+}

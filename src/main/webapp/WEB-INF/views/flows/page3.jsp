@@ -14,6 +14,14 @@
  body {
    background: url(resources/images/Dark-wooden-website-background.jpg) no-repeat center center fixed; 
 }
+#wrap{
+
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #D3D8E8));
+/* Webkit (Chrome 11+) */ 
+background-image: linear-gradient(to bottom, #FFFFFF 0%, 	#8B4513 100%);
+
+
+}  
  </style>
 
 </head>
@@ -103,16 +111,17 @@
 <c:import url="/head"/>
 <br><br><br><br><br>
 
-<div class="container">
-  <a href="${flowExecutionUrl}&_eventId=BackToConfirmDetails" class="btn btn-success btn-lg btn pull-left"><span class="glyphicon glyphicon-chevron-left"></span>Previous</a>
+<div class="container" id="wrap">
+<table class="table" align="center" >
+  <a href="${flowExecutionUrl}&_eventId=BackToConfirmDetails" class="btn btn-success btn-lg btn pull-left" ><span class="glyphicon glyphicon-chevron-left"></span>Previous</a>
  <a href="${flowExecutionUrl}&_eventId=confirmOrder" class="btn btn-danger btn-lg btn pull-right">Next<span class="glyphicon glyphicon-chevron-right"></span></a>
   
 </div>
 				    	
             <legend>Shipping Details</legend>
                     
-                    <div class="row">
-                        <div class="col-xs-6 col-md-6">
+                    <div class="row" style="margin: auto; width: 45%;">
+                        <div class="col-xs-12 col-md-12" >
                             
                             <label>Billing address</label><br><br>
 	<textarea rows="5" placeholder="Billing address" class="form-control" style="resize: none;" ng-model="billingAddress">
@@ -121,53 +130,74 @@
                             </div>
                             </div>
                             <br>
-                            <div class="row">
-                        <div class="col-xs-6 col-md-6">
+                            <div class="row" style="margin: auto; width: 45%;">
+                        <div class="col-xs-12 col-md-12">
                             <label>ShippingAddress</label><br><br>
 	<textarea rows="5" placeholder="Shipping Address" class="form-control" style="resize: none;" ng-model="shippingAddress">
 	</textarea>
 	
 	
-	<label><h2 style="font-family:Monotype Corsiva"><b>Total Price</b></h2></label><br>
+	<label><h2 style="font-family:Monotype Corsiva" ><b>Total Price</b></h2></label><br>
 		<textarea rows="2" class="form-control" style="resize: none;font-family:Monotype Corsiva;color:darkblack;font-size:20px" ng-model="TotalPrice" ng-disabled="true"></textarea>
-		
-	
                           </div>
+                    </div></table>
                     </div>
        <br><br><br>
-            <div ng-repeat="x in data" style="background-color: rgba(255,255,255,0.9);">
+<div class="panel panel-primary">
+      <div class="panel-heading" align="center"><h4 style="font-family: Perpetua Titling MT">Products You Choose to Buy</h4></div>
+    </div>
+<div ng-repeat="x in data" style="background-color: rgba(255, 255, 255, 0.9);">
 
-<table class="table" align="center" >
-
-	<tr>    
-          <td colspan="2">
-          	<div style="margin: auto; width: 45%;">
-          		<img src="${pageContext.request.contextPath}/{{x.ProductImage}}" width="100%" class="img img-responsive img-thumbnail"></img>
-          	</div>
-          </td>  
-	</tr> 
-
-<tr>
-	<td>Product Name</td>
-	<td>{{x.ProductName}}</td>
+		
+<div class="container">
+<div class="panel panel-primary">
+      
+    </div>
+   
+	
+		<div class="row">
+		
+<div class="col-sm-4">
+ <div class="panel panel-primary">
+  
+   <div class="panel-body">
+						<img src="${pageContext.request.contextPath}/{{x.ProductImage}}"
+							width="100%" class="img img-responsive img-thumbnail"></div>
+					</div>
+			</div>
+			
+			<div class="col-sm-4">
+				<div class="panel panel-primary">
+  
+   <div class="panel-body">
+		<table class="table" align="center">
+		<br>
+				<tr>
+				<td>Product Name</td>
+				<td>{{x.ProductName}}</td>
 </tr>
+	<tr>
+				<td>Qty</td>
+				<td>{{x.ProductQty}}</td>
+			</tr>
 
-		<input type="hidden" value="${ProductId}" name="pid" />
-		
-		<tr>
-			<td>Qty</td>
-			<td>{{x.ProductQty}}</td>
-		</tr>
-		
-		<tr>
-			<td>Price</td>
-			<td>{{x.ProductPrice}}</td>
-		</tr>
+			<tr>
 
-</table>
-</div>            
-            
-            <br><br><br><br>
-
+				<td>Price</td>
+				<td>{{x.ProductPrice}}</td>
+			</tr>
+			
+			
+		</table>
+		</div>
+		</div>
+		</div>
+</div>
+</div>
+</div>
+		<br>
+		<br>
+		<br>
 </body>
+
 </html>

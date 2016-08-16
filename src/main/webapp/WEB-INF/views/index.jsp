@@ -24,7 +24,7 @@ body {
 
 
 h1{
-font-family: "Algerian"
+font-family: "Times New Roman"
 }
 .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
@@ -37,13 +37,17 @@ h4 {
 }
 .jumbotron{
 background-image:url("http://localhost:8080/watchco/resources/images/main_EQB-600.jpg");
+
 }
+
+
+
 </style>
 </head>
 <body>
 
 <c:import url="head.jsp"/>
-
+<br>
 <div class="jumbotron">
 <div class="container">
   
@@ -103,7 +107,7 @@ background-image:url("http://localhost:8080/watchco/resources/images/main_EQB-60
 <div id="section1" class="container">
   
 <div class="panel panel-primary">
-      <div class="panel-heading">CASIO PRODUCTS</div>
+      <div class="panel-heading" align="center">CASIO PRODUCTS</div>
     </div>
     <br>
   <div>

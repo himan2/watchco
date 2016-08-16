@@ -100,7 +100,8 @@ legend{
                             <form:errors path="username" class="text text-danger" />
                         </div>
                         <div class="col-xs-6 col-md-6">
-                            <form:input path="phone" type="text" name="phone" value="" class="form-control input-lg" placeholder="Phone Number"  />                        </div>
+                            <form:input path="phone" type="text" name="phone" value="" class="form-control input-lg" placeholder="Phone Number"  />
+                            </div>
                             <form:errors path="phone" class="text text-danger" />
                     </div>
                     
@@ -121,7 +122,7 @@ legend{
           </div>
 </div>            
 </div>
-</div>
+
 
 </body>
 </html>

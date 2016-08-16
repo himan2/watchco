@@ -7,7 +7,9 @@
 <head>
 <c:import url="head-meta.jsp"/>
 <style>
-
+body {
+   background: url(http://localhost:8080/watchco/resources/images/Dark-wooden-website-background.jpg) no-repeat center center fixed; 
+}
 #wrap{
 
 background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #D3D8E8));
@@ -28,10 +30,10 @@ background-image: linear-gradient(to bottom, #FFFFFF 0%, 	#8B4513 100%);
 
 
 <br><br><br>
-<table class="table" align="center" >
+<table class="table" style="margin: auto; width: 45%; color:white;" >
 
 	<tr>    
-          <td colspan="2"><img src="${pageContext.request.contextPath}/${ProductImg}" width="40%" class="img img-responsive img-thumbnail"></img></td>  
+          <td colspan="2" align="center"><img src="${pageContext.request.contextPath}/${ProductImage}" width="100%" class="img img-responsive img-thumbnail"  ></img></td>  
 	</tr> 
 
 <tr>
@@ -39,15 +41,26 @@ background-image: linear-gradient(to bottom, #FFFFFF 0%, 	#8B4513 100%);
 	<td>${ProductName}</td>
 </tr>
 
-<tr><td>Product Description</td><td>${ProductDescription}</td></tr>
+<tr>
+	<td>Product Description</td>
+	<td>${ProductDescription}</td>
+</tr>
 
-<tr><td>Product Category</td><td>${ProductCategory}</td></tr>
+<tr>
+	<td>Product Category</td>
+	<td>${ProductCategory}</td>
+</tr>
+
+<tr>
+	<td>Product Price</td>
+	<td>${ProductPrice}</td>
+</tr>
 
 	<form action="${pageContext.request.contextPath}/addToCart" method="post">
 		<input type="hidden" value="${ProductId}" name="pid" />
 		<tr>
 			<td>Qty</td>
-			<td><input type="number" min="1" max="10" name="pqty" class="form form-input" /></td>
+			<td><input type="number" value="1" min="1" max="10" name="pqty" class="form form-input" /></td>
 		</tr>
 		
 		<tr>

@@ -134,15 +134,15 @@ legend{
 <c:import url="/head"/>
 <br><br><br>
 <div class="container" id="wrap">
-  <a href="${flowExecutionUrl}&_eventId=BackToCart" class="btn btn-primary btn-lg btn pull-left" style="position: absolute; top: 540px; left: 350px; "><span class="glyphicon glyphicon-chevron-left"></span>Previous</a>
-  <a href="${flowExecutionUrl}&_eventId=ViewCompleteOrder" class="btn btn-primary btn-lg btn pull-right" style="position: absolute; top: 540px; right: 350px; " >Next<span class="glyphicon glyphicon-chevron-right"></span></a>
+  <a href="${flowExecutionUrl}&_eventId=BackToCart" class="btn btn-primary btn-lg btn pull-left" style="position: absolute; top: 540px; left: 350px; "><span class="glyphicon glyphicon-chevron-left"></span>Back to Cart</a>
+  <a href="${flowExecutionUrl}&_eventId=ViewCompleteOrder" class="btn btn-primary btn-lg btn pull-right" style="position: absolute; top: 540px; right: 350px; " >Confirm Details<span class="glyphicon glyphicon-chevron-right"></span></a>
 
  <form >
 					    	
             <legend>Shipping Details</legend>
                     
-                    <div class="row">
-                        <div class="col-xs-6 col-md-6">
+                    <div class="row" style="margin: auto; width: 45%;">
+                        <div class="col-xs-12 col-md-12">
                             
                             <label>Billing address</label><br><br>
 	<textarea rows="5" placeholder="Billing address" class="form-control" style="resize: none;" ng-model="billingAddress">
@@ -151,20 +151,19 @@ legend{
                             </div>
                             </div>
                             <br>
-                            <div class="row">
-                        <div class="col-xs-6 col-md-6">
+                            <div class="row" style="margin: auto; width: 45%;">
+                        <div class="col-xs-12 col-md-12">
                             <label>ShippingAddress</label><br><br>
 	<textarea rows="5" placeholder="Shipping Address" class="form-control" style="resize: none;" ng-model="shippingAddress">
 	</textarea>
                           </div>
                     </div>
                     
-                   
                     			  <br />
           
-                    <input type="button" value="Update" class="btn btn-success" ng-click="UpdateAddresses()" ng-disabled="shippingAddress=='' || billingAddress==''">
-                        <label class="alert alert-success" ng-show="updated=='updated'">Updated</label>
-                        <br><br>
+                    <input type="button" value="Update" class="btn btn-success" style="position: absolute; top: 470px; left: 450px; " ng-click="UpdateAddresses()" ng-disabled="shippingAddress=='' || billingAddress==''">
+                        <label class="alert alert-success" style="position: absolute; top: 470px; left: 530px; " ng-show="updated=='updated'">Updated</label>
+                        <br><br><br>
             </form>          
 </div>
 

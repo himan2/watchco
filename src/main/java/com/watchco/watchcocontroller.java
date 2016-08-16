@@ -13,6 +13,8 @@ import javax.validation.Valid;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -51,6 +53,9 @@ public class watchcocontroller {
 	@Autowired
 	CartService cs;
 	
+	@Autowired
+	JavaMailSender mail;
+	
 	@RequestMapping(value="/")	
 	public String home()
 	{	
@@ -61,12 +66,48 @@ public class watchcocontroller {
 	public String index()
 	{	
 		return "index";
-	}	
+	}
+	@RequestMapping(value="/about")	
+	public String aboutus()
+	{	
+		return "about";
+	}
 	@RequestMapping(value="/contact")	
 	public String contact()
 	{	
 		return "contact";
 	}	
+	
+	
+	@RequestMapping("/thank")
+	public String emailconfirm( HttpServletRequest req , HttpServletResponse resp ) {
+
+		String uemail = req.getParameter("email");
+		String subject = req.getParameter("subject");
+		String msg = req.getParameter("message");
+		
+		System.out.println( uemail );
+		System.out.println( subject );
+		System.out.println( msg );
+
+		SimpleMailMessage email = new SimpleMailMessage();
+		
+		email.setTo("chronowatchservice@gmail.com");
+		email.setSubject(uemail+":"+subject);
+		email.setText(msg);
+		
+		try
+		{
+			mail.send(email);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		return "thank";
+	}
+	
 	@RequestMapping(value="flows/page1")	
 	public ModelAndView page1()
 	{

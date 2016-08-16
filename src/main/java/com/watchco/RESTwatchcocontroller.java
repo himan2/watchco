@@ -233,6 +233,7 @@ public class RESTwatchcocontroller {
 				jobj.put("ProductID", item.getProductID() );
 				jobj.put("ProductName", item.getName() );
 				jobj.put("ProductPrice", item.getPrice() );
+				jobj.put("CartId", item.getCartID() );
 				
 				System.out.println("PID: "+item.getProductID());
 				

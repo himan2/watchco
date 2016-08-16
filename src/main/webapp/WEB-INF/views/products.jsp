@@ -52,6 +52,9 @@ input[type=text]:focus {
     margin: 4px 2px;
     cursor: pointer;
 }
+/* .table{
+display: inline-block;
+} */
 </style>
 
 </head>
@@ -83,7 +86,17 @@ input[type=text]:focus {
  <c:import url="head.jsp"/>
  <br><br><br><br><br>
  <div align="right">
- <a href="AddProduct"><button type="button" class="btn btn-success">Add Product</button></a>
+ 
+ <%
+ if (request.isUserInRole("ADMIN"))
+ {
+ 	%>
+ 	<a href="AddProduct"><button type="button" class="btn btn-success" 
+ 	style="position: absolute; top: 100px; right: 80px;">Add Product</button></a>
+ 	<%
+ }
+ 	%>
+ 
  </div>
   <form align="center">
  <input type="text" placeholder="Search Products..." ng-model="search" />
@@ -92,6 +105,8 @@ input[type=text]:focus {
  
  <div class="container">
  
+ 
+ 
  <table class="table" id="section1">
  	<tr ng-repeat="x in data | filter:search">
  	
@@ -99,9 +114,17 @@ input[type=text]:focus {
  		
  		<td>{{x.ProductID}}<br>{{x.ProductName}}<br>{{x.ProductPrice}}</td>
  		
- 		<td><a href="${pageContext.request.contextPath}/viewproduct/{{x.ProductID}}" class="btn btn-info">View Product</a><br><br>
- 		<a href="${pageContext.request.contextPath}/updateproduct/{{x.ProductID}}" class="btn btn-warning">Update Product</a><br><br>
+ 		<td><a href="${pageContext.request.contextPath}/viewproduct/{{x.ProductID}}" class="btn btn-info" >View Product</a><br><br>
+ 		<%
+ if (request.isUserInRole("ADMIN"))
+ {
+ 	%>
+ 	<a href="${pageContext.request.contextPath}/updateproduct/{{x.ProductID}}" class="btn btn-warning">Update Product</a><br><br>
  		<a href="${pageContext.request.contextPath}/deleteproduct/{{x.ProductID}}"><button type="button" class="btn btn-danger">Delete Product</button></a>
+ 	<%
+ }
+ 	%>
+ 		
  		</td>
  	</tr>
  </table>
