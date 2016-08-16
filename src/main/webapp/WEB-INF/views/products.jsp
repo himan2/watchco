@@ -38,7 +38,7 @@ input[type=text]:focus {
 	transform:scale(2,2);
 	transform-origin:0 0;
 } */
-#section1 {padding-top:50px;height:800px;color:white;font-size: 25px; }
+#section1 {padding-top:50px;height:600px;color:black;font-size: 25px; }
 
 .button {
    
@@ -108,19 +108,19 @@ display: inline-block;
  
  
  <table class="table" id="section1">
- 	<tr ng-repeat="x in data | filter:search">
+ 	<tr ng-repeat="x in data | filter:search" style="background-color: rgba(255,255,255,0.5);">
  	
- 		<td><img src="${pageContext.request.contextPath}/{{ x.ProductImage }}" class="img-rounded" width="250px" ></td>
+ 		<td align="center"><img src="${pageContext.request.contextPath}/{{ x.ProductImage }}" class="img-rounded" width="250px" ></td>
  		
- 		<td>{{x.ProductID}}<br>{{x.ProductName}}<br>{{x.ProductPrice}}</td>
+ 		<td align="center" style="font-weight: bold;"> PRODUCT ID : {{x.ProductID}}<br>NAME : {{x.ProductName}}<br>PRICE : Rs.{{x.ProductPrice}}</td>
  		
- 		<td><a href="${pageContext.request.contextPath}/viewproduct/{{x.ProductID}}" class="btn btn-info" >View Product</a><br><br>
+ 		<td ><a href="${pageContext.request.contextPath}/viewproduct/{{x.ProductID}}" class="btn btn-info" style="font-weight: bold;" >View Product</a><br><br>
  		<%
  if (request.isUserInRole("ADMIN"))
  {
  	%>
- 	<a href="${pageContext.request.contextPath}/updateproduct/{{x.ProductID}}" class="btn btn-warning">Update Product</a><br><br>
- 		<a href="${pageContext.request.contextPath}/deleteproduct/{{x.ProductID}}"><button type="button" class="btn btn-danger">Delete Product</button></a>
+ 	<a href="${pageContext.request.contextPath}/updateproduct/{{x.ProductID}}" class="btn btn-warning" style="font-weight: bold;">Update Product</a><br><br>
+ 		<a href="${pageContext.request.contextPath}/deleteproduct/{{x.ProductID}}"><button type="button" class="btn btn-danger" style="font-weight: bold;">Delete Product</button></a>
  	<%
  }
  	%>

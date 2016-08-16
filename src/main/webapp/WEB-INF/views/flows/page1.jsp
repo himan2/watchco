@@ -155,12 +155,21 @@ return {
     <br>
 	
 		<div class="row">
-<div class="col-sm-12">
+<div class="col-sm-6">
  <div class="panel panel-primary" style="margin: auto; width: 85%;">
   
    <div class="panel-body" >
        
-          		<img src="${pageContext.request.contextPath}/{{x.ProductImage}}" width="100%" class="img img-responsive img-thumbnail"></img>
+          		<img src="${pageContext.request.contextPath}/{{x.ProductImage}}" width="100%" 
+          		class="img img-responsive img-thumbnail"></img>
+          		</div>
+          		</div>
+          		</div>
+          		
+          		<div class="col-sm-6">
+				<div class="panel panel-primary">
+  
+   <div class="panel-body">
           		<table class="table" style="margin: auto; width: 85%;">
 
 <tr>

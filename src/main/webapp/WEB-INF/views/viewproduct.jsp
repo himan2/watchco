@@ -30,7 +30,7 @@ background-image: linear-gradient(to bottom, #FFFFFF 0%, 	#8B4513 100%);
 
 
 <br><br><br>
-<table class="table" style="margin: auto; width: 45%; color:white;" >
+<table class="table" style="margin: auto; width: 45%; color:black; font-weight: bold; font-size: 120%;" >
 
 	<tr>    
           <td colspan="2" align="center"><img src="${pageContext.request.contextPath}/${ProductImage}" width="100%" class="img img-responsive img-thumbnail"  ></img></td>  
@@ -58,14 +58,32 @@ background-image: linear-gradient(to bottom, #FFFFFF 0%, 	#8B4513 100%);
 
 	<form action="${pageContext.request.contextPath}/addToCart" method="post">
 		<input type="hidden" value="${ProductId}" name="pid" />
+		
 		<tr>
-			<td>Qty</td>
+			<%
+ if (request.isUserInRole("USER"))
+ {
+ 	%>
+ 	<td>Qty</td>
 			<td><input type="number" value="1" min="1" max="10" name="pqty" class="form form-input" /></td>
+ 	<%
+ }
+ 	%>
+			
 		</tr>
 		
 		<tr>
-			<td></td>
+		<%
+ if (request.isUserInRole("USER"))
+ {
+ 	%>
+ 	<td></td>
 			<td><input type="submit" value="Add To Cart" class="btn btn-success"/></td>
+ 	<%
+ }
+ 	%>
+		
+			
 		</tr>
 		
 	</form>

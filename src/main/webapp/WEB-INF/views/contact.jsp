@@ -40,9 +40,9 @@ body {
 	<br>
 	<br>
 
-	<div class="container">
+	<div class="container" >
 
-		<div class="container-fluid">
+		<div class="container-fluid" >
 
 			<div class="span">
 
@@ -59,8 +59,8 @@ body {
 	<br>
 	<div class="container">
 
-		<div class="row">
-			<div class="col-md-8">
+		<div class="row" style="margin: auto; width: 85%;" >
+			<div class="col-md-10" >
 
 				<div class="well well-sm">
 <form action="thank" method="post">

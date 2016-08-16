@@ -20,11 +20,13 @@ body {
  body {
       position: relative;
   }
-  #section1 {padding-top:50px;height:800px;color:white; }
+  /* #section1 {padding-top:50px;height:800px;color:white; }
+ */  
+   #section1 {color:white; }
 
 
 h1{
-font-family: "Times New Roman"
+font-family: "Algerian"
 }
 .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
@@ -47,9 +49,9 @@ background-image:url("http://localhost:8080/watchco/resources/images/main_EQB-60
 <body>
 
 <c:import url="head.jsp"/>
-<br>
+<br><br>
 <div class="jumbotron">
-<div class="container">
+<div class="container" >
   
    <div class="container-fluid">
   

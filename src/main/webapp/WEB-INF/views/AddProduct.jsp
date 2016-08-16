@@ -80,12 +80,12 @@ background-image: linear-gradient(to bottom, #FFFFFF 0%, 	#8B4513 100%);
 				</td>
 			</tr>
 
-			<tr><td> <input type="submit" value="Add" class="btn btn-primary"></td></tr>
+			<tr><td> <input type="submit" value="Add Product" class="btn btn-lg btn-primary" style="font-weight: bold; position: absolute; top: 410px; right: 560px;"></td></tr>
 
 		</table>
 
 	</form:form>
-	
+<br><br><br>	
 <br></div>
 	
 

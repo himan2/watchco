@@ -12,7 +12,7 @@
  <c:import url="head-meta.jsp" />
  <style>
  body {
-   background: url(resources/images/Thank.jpg) no-repeat center center fixed; 
+   background: url(resources/images/Dark-wooden-website-background.jpg) no-repeat center center fixed; 
 }
  </style>
 
@@ -21,6 +21,13 @@
 
 <c:import url="head.jsp"/>
 <br><br><br><br>
+
+<div class="container" align="center">
+<br><br><br><br><br>
+  <img src=resources/images/thnku.jpg class="img-rounded"  >
+  <a href="${pageContext.request.contextPath}/index" class="btn btn-success btn-lg btn pull-left" 
+  style="position: absolute; top: 340px; left: 660px; ">Back to Home Page</a>
+</div>
 
 </body>
 </html>

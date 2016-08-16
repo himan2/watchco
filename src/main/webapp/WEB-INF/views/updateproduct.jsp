@@ -41,44 +41,44 @@ background-image: linear-gradient(to bottom, #FFFFFF 0%, 	#8B4513 100%);
 
 <tr><td>Enter Product Name</td>
 	<td>
-	<form:input type="text" path="productName" class="form-control" placeholder="productName"  />
+	<form:input type="text" path="productName" class="form-control input-lg" placeholder="productName"  />
 	</td>
 </tr>
 
 <tr><td>Enter Product ID</td>
 	<td>
-	<form:input type="text" path="productId" class="form-control" placeholder="Enter Product ID"  />
+	<form:input type="text" path="productId" class="form-control input-lg" placeholder="Enter Product ID"  />
 	</td>
 </tr>
 
 <tr><td>Enter Product Description</td>
 	<td>
-	<form:input type="text" path="productDescription" class="form-control" placeholder="Enter Product Description"  />
+	<form:input type="text" path="productDescription" class="form-control input-lg" placeholder="Enter Product Description"  />
 	</td>
 </tr>
 
 <tr><td>Enter Product Category</td>
 	<td>
-	<form:input type="text" path="productCategory" class="form-control" placeholder="Enter Product Category"  />
+	<form:input type="text" path="productCategory" class="form-control input-lg" placeholder="Enter Product Category"  />
 	</td>
 </tr>
 
 <tr><td>Enter Product Qty</td>
 	<td>
-	<form:input type="text" path="productQty" class="form-control" placeholder="Enter Product Qty"  />
+	<form:input type="text" path="productQty" class="form-control input-lg" placeholder="Enter Product Qty"  />
 	</td>
 </tr>
 
 <tr><td>Enter Product Price</td>
 	<td>
-	<form:input type="text" path="productPrice" class="form-control" placeholder="Enter Product Price"  />
+	<form:input type="text" path="productPrice" class="form-control input-lg" placeholder="Enter Product Price"  />
 	</td>
 </tr>
 
 <tr>
 				<td><form:label path="productImage" for="productImage">Image:</form:label></td>
 				<td>
-					<label class="form-control"><span id="file_display1">Choose Image</span><span style="position: relative; "><form:input path="productFile" onchange="changeFileDisplay1();" type="file" style="opacity:0;" class="form-control"  id="imageFile1"/></span></label>
+					<label class="form-control input-lg"><span id="file_display1">Choose Image</span><span style="position: relative; "><form:input path="productFile" onchange="changeFileDisplay1();" type="file" style="opacity:0;" class="form-control"  id="imageFile1"/></span></label>
 							  		
 					<script type="text/javascript">
 								  			
@@ -92,11 +92,12 @@ background-image: linear-gradient(to bottom, #FFFFFF 0%, 	#8B4513 100%);
 				</td>
 			</tr>
 
-<tr><td> <input type="submit" value="Update" class="btn btn-primary"></td></tr><br>
+<tr><td> <input type="submit" value="Update Product" class="btn btn-lg btn-primary" style="position: absolute; top: 450px; right: 560px; "></td></tr><br>
 
 </table>
-<br>
+<br><br><br><br><br>
 </form:form>
 </div>
+
 </body>
 </html>

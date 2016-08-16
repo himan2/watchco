@@ -132,10 +132,10 @@ legend{
 <body ng-app="myApp" ng-controller="abc">
 
 <c:import url="/head"/>
-<br><br><br>
+<br><br><br><br>
 <div class="container" id="wrap">
-  <a href="${flowExecutionUrl}&_eventId=BackToCart" class="btn btn-primary btn-lg btn pull-left" style="position: absolute; top: 540px; left: 350px; "><span class="glyphicon glyphicon-chevron-left"></span>Back to Cart</a>
-  <a href="${flowExecutionUrl}&_eventId=ViewCompleteOrder" class="btn btn-primary btn-lg btn pull-right" style="position: absolute; top: 540px; right: 350px; " >Confirm Details<span class="glyphicon glyphicon-chevron-right"></span></a>
+  <a href="${flowExecutionUrl}&_eventId=BackToCart" class="btn btn-primary btn-lg btn pull-left" style="position: absolute; top: 340px; left: 150px; "><span class="glyphicon glyphicon-chevron-left"></span>Back to Cart</a>
+  <a href="${flowExecutionUrl}&_eventId=ViewCompleteOrder" class="btn btn-primary btn-lg btn pull-right" style="position: absolute; top: 340px; right: 150px; " >Confirm Details<span class="glyphicon glyphicon-chevron-right"></span></a>
 
  <form >
 					    	
@@ -161,9 +161,9 @@ legend{
                     
                     			  <br />
           
-                    <input type="button" value="Update" class="btn btn-success" style="position: absolute; top: 470px; left: 450px; " ng-click="UpdateAddresses()" ng-disabled="shippingAddress=='' || billingAddress==''">
-                        <label class="alert alert-success" style="position: absolute; top: 470px; left: 530px; " ng-show="updated=='updated'">Updated</label>
-                        <br><br><br>
+                    <input type="button" value="Update" class="btn btn-success" style="position: absolute; top: 490px; left: 450px; " ng-click="UpdateAddresses()" ng-disabled="shippingAddress=='' || billingAddress==''">
+                        <label class="alert alert-success" style="position: absolute; top: 490px; left: 530px; " ng-show="updated=='updated'">Updated</label>
+                        <br><br><br><br><br><br>
             </form>          
 </div>
 

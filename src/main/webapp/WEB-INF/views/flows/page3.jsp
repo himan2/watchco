@@ -113,12 +113,12 @@ background-image: linear-gradient(to bottom, #FFFFFF 0%, 	#8B4513 100%);
 
 <div class="container" id="wrap">
 <table class="table" align="center" >
-  <a href="${flowExecutionUrl}&_eventId=BackToConfirmDetails" class="btn btn-success btn-lg btn pull-left" ><span class="glyphicon glyphicon-chevron-left"></span>Previous</a>
- <a href="${flowExecutionUrl}&_eventId=confirmOrder" class="btn btn-danger btn-lg btn pull-right">Next<span class="glyphicon glyphicon-chevron-right"></span></a>
+  <a href="${flowExecutionUrl}&_eventId=BackToConfirmDetails" class="btn btn-primary btn-lg btn pull-left" style="position: absolute; top: 400px; left: 130px; "><span class="glyphicon glyphicon-chevron-left"></span>Back to Confirm Details</a>
+ <a href="${flowExecutionUrl}&_eventId=confirmOrder" class="btn btn-primary btn-lg btn pull-right" style="position: absolute; top: 400px; right: 140px; ">Confirm Order<span class="glyphicon glyphicon-chevron-right"></span></a>
   
 </div>
 				    	
-            <legend>Shipping Details</legend>
+            <legend align="center" >Shipping Details</legend>
                     
                     <div class="row" style="margin: auto; width: 45%;">
                         <div class="col-xs-12 col-md-12" >
@@ -146,7 +146,7 @@ background-image: linear-gradient(to bottom, #FFFFFF 0%, 	#8B4513 100%);
 <div class="panel panel-primary">
       <div class="panel-heading" align="center"><h4 style="font-family: Perpetua Titling MT">Products You Choose to Buy</h4></div>
     </div>
-<div ng-repeat="x in data" style="background-color: rgba(255, 255, 255, 0.9);">
+<div ng-repeat="x in data" style="background-color: rgba(255, 255, 255, 0.5);">
 
 		
 <div class="container">
@@ -157,16 +157,16 @@ background-image: linear-gradient(to bottom, #FFFFFF 0%, 	#8B4513 100%);
 	
 		<div class="row">
 		
-<div class="col-sm-4">
- <div class="panel panel-primary">
+<div class="col-sm-6">
+ <div class="panel panel-primary" >
   
-   <div class="panel-body">
+   <div class="panel-body" >
 						<img src="${pageContext.request.contextPath}/{{x.ProductImage}}"
 							width="100%" class="img img-responsive img-thumbnail"></div>
 					</div>
 			</div>
 			
-			<div class="col-sm-4">
+			<div class="col-sm-6">
 				<div class="panel panel-primary">
   
    <div class="panel-body">

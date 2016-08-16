@@ -64,7 +64,7 @@ legend{
 <body>
 <c:import url="head.jsp"/>
 <br>
-<br><br><br>
+<br><br><br><br><br><br>
 
 <div class="container" id="wrap">
 		

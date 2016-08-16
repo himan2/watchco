@@ -14,7 +14,9 @@ footer
 #myNavbar
 {
 	/*  background: url(http://localhost:8080/watchco/resources/images/thnk1.jpg); */ 
-	
+font-size: 120%;
+padding-top:15px; padding-bottom:5px; height:200px;
+	 /* background-color: #000d33; */
 	
 }
 body {
