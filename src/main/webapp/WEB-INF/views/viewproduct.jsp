@@ -61,7 +61,7 @@ background-image: linear-gradient(to bottom, #FFFFFF 0%, 	#8B4513 100%);
 		
 		<tr>
 			<%
- if (request.isUserInRole("USER"))
+ if (!request.isUserInRole("ADMIN"))
  {
  	%>
  	<td>Qty</td>
@@ -74,7 +74,7 @@ background-image: linear-gradient(to bottom, #FFFFFF 0%, 	#8B4513 100%);
 		
 		<tr>
 		<%
- if (request.isUserInRole("USER"))
+ if (!request.isUserInRole("ADMIN"))
  {
  	%>
  	<td></td>

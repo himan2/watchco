@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-  <title>Bootstrap Example</title>
+  <title>Products</title>
  
   
  <c:import url="head-meta.jsp" />
@@ -66,6 +66,8 @@ display: inline-block;
 	myApp.controller("abc",function($scope)
 	{
 		$scope.data = ${data};
+		
+		$scope.search = '${param.item}';
 	});
 	
 </script>
@@ -112,7 +114,7 @@ display: inline-block;
  	
  		<td align="center"><img src="${pageContext.request.contextPath}/{{ x.ProductImage }}" class="img-rounded" width="250px" ></td>
  		
- 		<td align="center" style="font-weight: bold;"> PRODUCT ID : {{x.ProductID}}<br>NAME : {{x.ProductName}}<br>PRICE : Rs.{{x.ProductPrice}}</td>
+ 		<td align="center" style="font-weight: bold;"><br>NAME : {{x.ProductName}}<br>PRICE : Rs.{{x.ProductPrice}}</td>
  		
  		<td ><a href="${pageContext.request.contextPath}/viewproduct/{{x.ProductID}}" class="btn btn-info" style="font-weight: bold;" >View Product</a><br><br>
  		<%

@@ -73,8 +73,8 @@ body {
 							<div class="form-group">
 								<label for="email"> Email Address</label>
 								<div class="input-group">
-									<span class="input-group-addon"><i
-										class="glyphicon glyphicon-envelope blue"></i> </span> <input
+									<span class="input-group-addon">
+									<i class="glyphicon glyphicon-envelope blue"></i> </span> <input
 										type="email" class="form-control" name="email" id="email"
 										placeholder="Enter email" required="required" />
 								</div>

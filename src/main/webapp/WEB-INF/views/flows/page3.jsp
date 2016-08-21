@@ -172,21 +172,23 @@ background-image: linear-gradient(to bottom, #FFFFFF 0%, 	#8B4513 100%);
    <div class="panel-body">
 		<table class="table" align="center">
 		<br>
+		<h4 align="center" style="font-weight: bold;" >Product details</h4>
+	
 				<tr>
-				<td>Product Name</td>
+				<td>Product Name : </td>
 				<td>{{x.ProductName}}</td>
 </tr>
 	<tr>
-				<td>Qty</td>
+				<td>Qty : </td>
 				<td>{{x.ProductQty}}</td>
 			</tr>
 
 			<tr>
 
-				<td>Price</td>
+				<td>Price : </td>
 				<td>{{x.ProductPrice}}</td>
 			</tr>
-			
+			<br>
 			
 		</table>
 		</div>

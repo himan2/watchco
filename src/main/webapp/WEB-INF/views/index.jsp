@@ -78,19 +78,27 @@ background-image:url("http://localhost:8080/watchco/resources/images/main_EQB-60
 
     <div class="carousel-inner" role="listbox">
       <div class="item active">
+      <a href="${pageContext.request.contextPath}/products?item=casio+edifice">
         <img src="resources/images/offer2.jpg" alt="rado" width="460" height="345">
+        </a>
       </div>
 
       <div class="item">
+      <a href="${pageContext.request.contextPath}/products?item=casio+g-steel">
         <img src="resources/images/gsteel.jpg" alt="rolex" width="460" height="345">
+      </a>
       </div>
     
       <div class="item">
+      <a href="${pageContext.request.contextPath}/products?item=casio+g-music">
         <img src="resources/images/gbluetooth.jpg" alt="casio" width="460" height="345">
+      </a>
       </div>
 
       <div class="item">
+      <a href="${pageContext.request.contextPath}/products?item=casio+sheen">
         <img src="resources/images/sheen.jpg" alt="omega" width="460" height="345">
+        </a>
       </div>
     </div>
 
@@ -114,6 +122,7 @@ background-image:url("http://localhost:8080/watchco/resources/images/main_EQB-60
     <br>
   <div>
 <div class="row" >
+ <a href="${pageContext.request.contextPath}/products?item=casio+gshock">
  <div class="col-sm-4" >
    <div class="panel panel-primary">
    <div class="panel-heading"><h3> CASIO G-SHOCK SERIES </h3></div>
@@ -121,16 +130,18 @@ background-image:url("http://localhost:8080/watchco/resources/images/main_EQB-60
      <img src="resources/images/gulf.jpg"  alt="Cinque Terre" width="100%" class="img img-responsive" ><h4 style="background-color: rgba(255,255,255,0.8);"> An electronic crown switch and the use of multiple motors combine to enable conflict-free simultaneous operation of multiple functions, and smooth switching between functions.</h4></div>
     </div>
     </div>
-
+    </a>
+<a href="${pageContext.request.contextPath}/products?item=casio+edifice">
 <div class="col-sm-4" >
    <div class="panel panel-primary">
    <div class="panel-heading"><h3> EDIFICE SERIES </h3></div>
-   <div class="panel-body">
+   <div class="panel-body" style="max-height:40;">
      <img src="resources/images/mud.jpg"  alt="Cinque Terre" width="100%" class="img img-responsive"><h4 style="background-color: rgba(255,255,255,0.8);"> FeaturesSmart Access 
       This new MUDMASTER model was created especially for this whose work takes it into areas where piles of rubble, dirt, and debris are present.</h4></div>
     </div>
-    </div>
+    </div></a>
     
+<a href="${pageContext.request.contextPath}/products?item=casio+protrek">    
  <div class="col-sm-4" >
    <div class="panel panel-primary">
    <div class="panel-heading"><h3> PRO TREK SERIES </h3></div>
@@ -138,26 +149,24 @@ background-image:url("http://localhost:8080/watchco/resources/images/main_EQB-60
      <img src="resources/images/protrek1.jpg"  alt="Cinque Terre" width="100%" class="img img-responsive"><h4 style="background-color: rgba(255,255,255,0.8);">Introducing RANGEMAN, 
   the latest addition to the Master of G series of tough and rugged time pieces that are designed and engineered to stand up to the most grueling conditions imaginable..</h4></div>
     </div>
-    </div>
+    </div></a>
 </div>
 <br>
 <div class="row" >
+<a href="${pageContext.request.contextPath}/products?item=casio+sheen">
  <div class="col-sm-6" >
    <div class="panel panel-primary">
    <div class="panel-heading"><h3> SHEEN SERIES </h3></div>
    <div class="panel-body">
-     <img src="resources/images/sheenp.jpg"  alt="Cinque Terre" width="504" height="236"><h4 style="background-color: rgba(255,255,255,0.8);"> An electronic crown switch and the use of multiple motors combine to enable conflict-free simultaneous operation of multiple functions, and smooth switching between functions.</h4></div>
+     <img src="resources/images/sheenp.jpg"  alt="Cinque Terre" width="100%" class="img img-responsive"><h4 style="background-color: rgba(255,255,255,0.8);"> Chronograph
+| Stainless steel case and band
+| Water resistant
+| A Moon-shaped 24-hour disk at 3 o'clock uses radiant opal material
+| Generous use of SWAROVSKI ELEMENTS for hour markers and the bezel</h4></div>
     </div>
     </div>
     
-<div class="col-sm-6" >
-   <div class="panel panel-primary">
-   <div class="panel-heading"><h3> VINTAGE SERIES </h3></div>
-   <div class="panel-body">
-     <img src="resources/images/vintage.jpg"  alt="Cinque Terre" width="504" height="236"><h4 style="background-color: rgba(255,255,255,0.8);"> An electronic crown switch and the use of multiple motors combine to enable conflict-free simultaneous operation of multiple functions, and smooth switching between functions.</h4></div>
-    </div>
-    </div>
-</div>
+
 </div>
   </div>
   

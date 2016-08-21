@@ -142,7 +142,10 @@ return {
 <c:import url="/head"/>
 <br><br><br><br><br>
 <div class="container">
-  <a href="${flowExecutionUrl}&_eventId=goToCheckout" class="btn btn-primary btn-lg btn pull-right">Current Cart<span class="glyphicon glyphicon-chevron-right"></span></a>
+  <a href="${flowExecutionUrl}&_eventId=goToCheckout" class="btn btn-primary btn-lg btn pull-right">Current Cart
+  <span class="glyphicon glyphicon-chevron-right"></span></a>
+  <a href="${pageContext.request.contextPath}/products" class="btn btn-success btn-lg btn pull-left">
+  <span class="glyphicon glyphicon-chevron-left"></span>Back to Products</a>
   </div>
 <br>
 <div ng-repeat="x in data" style="background-color: rgba(255,255,255,0.5);">

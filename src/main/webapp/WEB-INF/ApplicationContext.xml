@@ -78,6 +78,8 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 	<property name="flowExecutor" ref="flowExecutor" />
 	</bean>
 	
+	<!-- email  -->
+	
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
         <property name="host" value="smtp.gmail.com" />
         <property name="port" value="587" />

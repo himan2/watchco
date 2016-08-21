@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav" >
       <li ><a href=""></a></li>
-         <a class="navbar-brand" style="font-size: 150%;" href="#">CHRONO WATCH CO.</a>
+         <a class="navbar-brand" style="font-size: 150%;" href="${pageContext.request.contextPath}/index">CHRONO WATCH CO.</a>
         <li ><a href="${pageContext.request.contextPath}/index">HOME</a></li>
         <li><a href="${pageContext.request.contextPath}/products">PRODUCTS</a></li>
         <li><a href="${pageContext.request.contextPath}/about">ABOUT US</a></li>
@@ -23,7 +23,15 @@
          
       </ul>
       <ul class="nav navbar-nav navbar-right">
-      <li><a href="${pageContext.request.contextPath}/initiateFlow">View Cart</a></li>
+      <%
+ if (!request.isUserInRole("ADMIN"))
+ {
+ 	%>
+ 	<li><a href="${pageContext.request.contextPath}/initiateFlow">View Cart</a></li>
+ 	<%
+ }
+ 	%>
+      
         <c:choose>
 	      					<c:when test="${not empty pageContext.request.userPrincipal}">
 	      						<li><a href="${pageContext.request.contextPath}/index">${pageContext.request.userPrincipal.name}</a></li>

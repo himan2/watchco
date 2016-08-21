@@ -7,9 +7,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.NumberFormat;
+import org.springframework.format.annotation.NumberFormat.Style;
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
 
 
 @Entity
@@ -98,7 +102,8 @@ public class User implements Serializable
 	public void setPassword(String password) {
 		Password = password;
 	}
-	
+	@Length(max=10,min=10,message="Phone number is not valid. Should be of length 10.")
+    @NumberFormat(style= Style.NUMBER)
 	@NotEmpty(message="Phone Number field is mandatory.")
 	public String getPhone() {
 		return Phone;
